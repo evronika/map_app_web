@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "serve": "node ./bin/www",
     "build": "webpack --config ./webpack.config.js",
     "start": "react-scripts start",
     "eject": "react-scripts eject"
