@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Mic Icon - White</title>
+    <g id="Video-Chat" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Artboard" transform="translate(-114.000000, -24.000000)">
+            <g id="muted" transform="translate(106.000000, 16.000000)">
+                <g id="Microphone,-Mute,-Slash" transform="translate(9.000000, 9.000000)">
+                    <g id="Mic-Icon---White">
+                        <polygon id="Path" points="0 0 38 0 38 38 0 38"></polygon>
+                        <g id="Group" transform="translate(7.000000, 3.000000)" stroke="#14141A" stroke-width="1.5">
+                            <line x1="11.9479167" y1="26.2083333" x2="11.9479167" y2="30.8333333" id="Path"></line>
+                            <path d="M6.33625,3.63833333 C7.302875,1.49695833 9.44579167,4.08562073e-14 11.9479167,4.08562073e-14 C15.3534583,4.08562073e-14 18.1145833,2.761125 18.1145833,6.16666667 L18.1145833,15.4166667" id="Path"></path>
+                            <line x1="6.75015599e-14" y1="3.46875" x2="23.8958333" y2="27.3645833" id="Path"></line>
+                            <path d="M5.78125,9.25 L5.78125,15.4166667 C5.78125,18.8222083 8.542375,21.5833333 11.9479167,21.5833333 C13.6514583,21.5833333 15.193125,20.8926667 16.30775,19.7765" id="Path"></path>
+                            <path d="M22.89375,13.875 L22.89375,15.2625 C22.89375,16.7224583 22.602375,18.1115 22.084375,19.3849167" id="Path"></path>
+                            <path d="M1.00208333,12.875 L1.00208333,14.2625 C1.00208333,20.307375 5.90304167,25.2083333 11.9479167,25.2083333 C14.9310417,25.2083333 17.6320417,24.012 19.6069167,22.0756667" id="Path"></path>
+                            <line x1="7.32291667" y1="31.8333333" x2="16.5729167" y2="31.8333333" id="Path"></line>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

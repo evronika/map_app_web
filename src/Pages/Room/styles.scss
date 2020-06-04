@@ -1,0 +1,30 @@
+@import 'Styles/colors.scss';
+
+.room.webcam-button-wrapper::before {
+  content: ' ';
+  display: block;
+  height: calc(94% - 96px);
+}
+
+.room.not-only.webcam-button-wrapper::before {
+  height: calc(94% - 56px);
+}
+
+.btn.btn-primary.phone-button {
+  background-color: $phone-button-background-color;
+}
+
+.room.webcam-button-wrapper {
+  p {
+    color: white;
+  }
+}
+
+.position-absolute.small-view-finder {
+  width: 160px;
+  height: 120px !important;
+  z-index: 10;
+  right: 10pt;
+  top: 10pt;
+  border-radius: 10px;
+}

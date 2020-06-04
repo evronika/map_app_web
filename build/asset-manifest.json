@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0b63b70c.chunk.css",
+    "main.js": "/static/js/main.a59e6c60.chunk.js",
+    "main.js.map": "/static/js/main.a59e6c60.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.df8613b9.js",
+    "runtime-main.js.map": "/static/js/runtime-main.df8613b9.js.map",
+    "static/css/2.69121389.chunk.css": "/static/css/2.69121389.chunk.css",
+    "static/js/2.f664aff2.chunk.js": "/static/js/2.f664aff2.chunk.js",
+    "static/js/2.f664aff2.chunk.js.map": "/static/js/2.f664aff2.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.fd4f0672005616183f7df09c2482be70.js": "/precache-manifest.fd4f0672005616183f7df09c2482be70.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.69121389.chunk.css.map": "/static/css/2.69121389.chunk.css.map",
+    "static/css/main.0b63b70c.chunk.css.map": "/static/css/main.0b63b70c.chunk.css.map",
+    "static/js/2.f664aff2.chunk.js.LICENSE.txt": "/static/js/2.f664aff2.chunk.js.LICENSE.txt",
+    "static/media/arrowIconWhite.svg": "/static/media/arrowIconWhite.68a325c8.svg",
+    "static/media/logo.svg": "/static/media/logo.0df5b4e0.svg",
+    "static/media/micIconBlack.svg": "/static/media/micIconBlack.57c33e88.svg",
+    "static/media/micIconWhite.svg": "/static/media/micIconWhite.04514f15.svg",
+    "static/media/phoneIconWhite.svg": "/static/media/phoneIconWhite.2503e736.svg",
+    "static/media/videoIconBlack.svg": "/static/media/videoIconBlack.4db8d2ae.svg",
+    "static/media/videoIconWhite.svg": "/static/media/videoIconWhite.67e5fd38.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.df8613b9.js",
+    "static/css/2.69121389.chunk.css",
+    "static/js/2.f664aff2.chunk.js",
+    "static/css/main.0b63b70c.chunk.css",
+    "static/js/main.a59e6c60.chunk.js"
+  ]
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Video Icon - White</title>
+    <g id="Video-Chat" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Artboard" transform="translate(-19.000000, -24.000000)">
+            <g id="video" transform="translate(11.000000, 16.000000)">
+                <g id="Video,-Movies" transform="translate(9.000000, 9.000000)">
+                    <g id="Video-Icon---White">
+                        <polygon id="Path" points="0 0 38 0 38 38 0 38"></polygon>
+                        <g id="Group-2" transform="translate(6.000000, 6.000000)" stroke="#14141A" stroke-width="1.5">
+                            <line x1="0.37" y1="2.48689958e-14" x2="18.7158333" y2="26.2083333" id="Path"></line>
+                            <path d="M15.7435,21.96875 L3.46875,21.96875 C1.55245833,21.96875 2.48689958e-14,20.4162917 2.48689958e-14,18.5 L2.48689958e-14,7.70833333" id="Path"></path>
+                            <path d="M3.33308333,4.23958333 L15.609375,4.23958333 C17.5256667,4.23958333 19.078125,5.79204167 19.078125,7.70833333 L19.078125,18.5" id="Path"></path>
+                            <path d="M19.078125,14.795375 L24.92875,19.503625 C26.0634167,20.4178333 27.75,19.61 27.75,18.153125 L27.75,8.05520833 C27.75,6.59833333 26.0634167,5.7905 24.92875,6.70470833 L19.078125,11.4129583" id="Path"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,14 @@
+@import 'Styles/colors.scss';
+
+.btn-tulip-large-primary a {
+	background-color: $tint-color;
+	color: white;
+	border-radius: 8px;
+	padding: 14px 65pt;
+	text-decoration: none;
+
+	&:hover {
+		color: white;
+	}
+
+}

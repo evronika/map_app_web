@@ -1,0 +1,76 @@
+@import '~bootstrap/scss/_functions';
+@import '~bootstrap/scss/_variables';
+@import '~bootstrap/scss/mixins/_breakpoints';
+@import 'Styles/colors.scss';
+
+.view-finder {
+	border-radius: 10px;
+	background-color: $placeholder-color;
+	overflow: hidden;
+
+	> video {
+		object-fit: cover;
+		border-radius: 10px;
+	}
+
+	@include media-breakpoint-down(md) {
+		border-radius: 0;
+
+		> video {
+			border-radius: 0;
+		}
+	}
+}
+
+.webcam-button-wrapper {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+
+	&:before {
+		content: ' ';
+		display: block;
+		height: calc(94% - 56px);
+	}
+}
+
+
+.btn.btn-primary.webcam-button {
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	backdrop-filter: blur(6px);
+	background-color: $webcam-button-background-color;
+	margin: 0px 12px;
+	border: none;
+	position: relative;
+	padding: .375rem;
+
+	&:not(:disabled).active {
+		background-color: white;
+		border-color: white;
+
+		&:focus {
+			box-shadow: none;
+		}
+	}
+
+	&:not(:disabled):focus {
+		box-shadow: none;
+	}
+
+	> img {
+		width: 38px;
+		height: 38px;
+		object-fit: fill;
+	}
+}
+
+.video-wrapper {
+	@include media-breakpoint-down(md) {
+		height: 70%;
+	}
+}
