@@ -43,7 +43,14 @@ export function deleteService(id: string) {
 	}
 }
 
-export function getServices() {
+export async function getServices() {
+
+	// let res = await fetch('http://localhost:3001/api/services', {mode: 'no-cors'}).then(function(response) {
+	// 	console.log(response);
+	// }).catch(function(error) {
+	// 	console.log('Request failed', error)
+	// });
+	// console.log('res', res)
 	return {
 		type: 'GET_SERVICES'
 	}

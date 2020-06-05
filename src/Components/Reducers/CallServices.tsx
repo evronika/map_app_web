@@ -5,7 +5,7 @@ const initialState = {
 export default (state: any = initialState, action: any) => {
 
     if (action.type === 'GET_SERVICES') {
-
+        state.services = action.data;
     }
 
     if (action.type === 'ADD_SERVICE') {

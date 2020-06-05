@@ -22,22 +22,30 @@ class Tasks extends Component<Props> {
         return tasks.map((task: { description: string }, key) => {
             return (
                 <div key={key}>
-                    { task.description }
+                    <span className='position-relative'>
+                        { task.description }
+                    </span>
                 </div>
             )
         })
     }
 
     render() {
-        let { createTask } = this.props;
+        let { createTask, tasks } = this.props;
 
         return (
             <Row className='h-100 flex-row py-3'>
                 <SimpleMap/>
-                <Row className='position-absolute w-100'>
-                    <Col xs={12} lg={9}>
-                        <h2 className='d-block w-100'>Tasks helper</h2>
-                        <h3>A list of tasks will be here.</h3>
+                <Row className='position-absolute w-100 px-4'>
+                    <Col xs={12} lg={8} className='tasks-wrapper pl-lg-5 pt-lg-5'>
+                        <h2>
+                            <span className='position-relative'>Tasks</span>
+                        </h2>
+                        <h3 className='d-inline-block'>
+                            <span className='position-relative'>
+                                {tasks.length === 0 ? 'There are no tasks...yet.' : ''}
+                            </span>
+                        </h3>
                         {this.renderTasks()}
                     </Col>
                     <ToggleModal createTask = {createTask}/>

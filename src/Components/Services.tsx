@@ -9,6 +9,7 @@ import Plumbing from '../Assets/plumbing.svg';
 type Props = {
     services: [],
     onServiceChange?: any
+    getServices?: any
 }
 
 class Services extends Component<Props> {
@@ -19,11 +20,11 @@ class Services extends Component<Props> {
     }
 
     renderSwitch(service: { name: string }, key : any) {
-        const { onServiceChange } = this.props;
+        const { onServiceChange, getServices } = this.props;
         const name: string = service.name.charAt(0).toUpperCase() + service.name.slice(1);
         switch (name) {
             case 'Plumbing':
-                return <Button className='service-button' key={key} onClick={onServiceChange} data-name={name}>
+                return <Button className='service-button' key={key} onClick={getServices} data-name={name}>
                     <Image src={Plumbing} className='my-2' data-name={name}/>
                     <p data-name={name}>{ name }</p>
                 </Button>

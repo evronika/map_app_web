@@ -15,7 +15,7 @@ class ToggleModal extends Component<Props> {
 
         const { toggleModal, isOpenModal, createTask } = this.props;
         return (
-            <Col xs={12} lg={3}>
+            <Col xs={12} lg={4}>
                 <div className='position-relative py-3'>
 
                     { isOpenModal ? <AddTask toggleModal={toggleModal} isOpenModal={isOpenModal} createTask={createTask}/> : '' }

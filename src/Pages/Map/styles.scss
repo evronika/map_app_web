@@ -37,3 +37,23 @@
 	@include buttons;
 	right: 0;
 }
+
+.map-wrapper {
+	z-index: 2;
+}
+
+.tasks-wrapper span,
+.toogle-modal-button {
+	z-index: 3;
+	position: relative;
+}
+
+.sidebar {
+	z-index: 4;
+}
+
+
+
+.tasks-wrapper span{
+	color: white;
+}
