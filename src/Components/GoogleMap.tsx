@@ -10,15 +10,6 @@ class SimpleMap extends Component {
         zoom: 11
     };
 
-    // componentDidUpdate(prevProps: any, nextProps: any) {
-    //     if(prevProps !== this.props){
-    //         console.log(nextProps);
-    //         this.setState({
-    //             fields: nextProps.fields,
-    //             containerClass: nextProps.containerClass
-    //         });
-    //     }
-    // }
 
     render() {
         const { center, zoom } = (this.props as any);
