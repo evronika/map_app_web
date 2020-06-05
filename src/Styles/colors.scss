@@ -2,3 +2,18 @@ $tint-color: #452BD6;
 $placeholder-color: #C7C7CC;
 $webcam-button-background-color: rgba(4, 4, 15, 0.45);
 $phone-button-background-color: rgba(255, 56, 80, 0.85);
+$text-color: #212529;
+$sidebar-background-color: $placeholder-color;
+$blue-color: #4674ff;
+
+@mixin buttons {
+  background-color: white;
+  color: $blue-color;
+  border-color: $blue-color;
+
+  &:hover {
+    color: white;
+    background-color: $blue-color;
+    border-color: $blue-color;
+  }
+}

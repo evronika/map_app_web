@@ -17,7 +17,5 @@ export default (state = initialState, action: any) => {
 		state = {...state, isBackCamera: !state.isBackCamera};
 	}
 
-	console.log('callButtons state', state)
-
 	return state;
 };

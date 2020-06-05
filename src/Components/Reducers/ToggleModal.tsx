@@ -1,5 +1,5 @@
 const initialState = {
-    isOpenModal: true
+    isOpenModal: false
 }
 
 export default (state: any = initialState, action: any) => {

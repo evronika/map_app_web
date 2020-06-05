@@ -24,7 +24,5 @@ export default (state: any = initialState, action: any) => {
         });
     }
 
-    console.log('callService state', state)
-
     return state;
 };

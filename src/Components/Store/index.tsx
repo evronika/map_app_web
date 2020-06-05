@@ -8,6 +8,7 @@ import CallButtonsReducer from '../Reducers/CallButtons';
 import CallServicesReducer from '../Reducers/CallServices';
 import CallTasksReducer from '../Reducers/CallTasks';
 import ToggleModalReducer from '../Reducers/ToggleModal';
+import AddTaskReducer from '../Reducers/AddTask';
 
 const initStore = () => {
 	// add the middlewares
@@ -20,7 +21,8 @@ const initStore = () => {
 		CallButtonsReducer,
 		CallServicesReducer,
 		CallTasksReducer,
-		ToggleModalReducer
+		ToggleModalReducer,
+		AddTaskReducer
 	});
 
 	// apply the middleware

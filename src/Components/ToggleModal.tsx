@@ -1,33 +1,29 @@
 import React, { Component } from 'react';
-import {Navbar, Nav, NavItem, Button} from "react-bootstrap";
-import Services from "./Containers/CallServiceContainer";
-import Sidebar from "react-sidebar";
+import {Button, Col} from "react-bootstrap";
+
+import AddTask from "./Containers/AddTaskContainer";
 
 type Props = {
     isOpenModal: boolean,
-    toggleModal?: any
+    toggleModal?: any,
+    createTask?: any
 }
 
 class ToggleModal extends Component<Props> {
 
     render() {
 
-        const { toggleModal, isOpenModal } = this.props;
+        const { toggleModal, isOpenModal, createTask } = this.props;
         return (
-            <div>
-                <Sidebar
-                    sidebar={<Services/>}
-                    open={isOpenModal}
-                    onSetOpen={toggleModal}
-                    styles={{ sidebar: { background: "white" } }}
-                >
-                    <Button variant={'tulip-large-primary' as any} onClick={toggleModal}>
-                        Add Task
+            <Col xs={12} lg={3}>
+                <div className='position-relative py-3'>
+
+                    { isOpenModal ? <AddTask toggleModal={toggleModal} isOpenModal={isOpenModal} createTask={createTask}/> : '' }
+                    <Button variant={'outline-primary'} onClick={toggleModal} className="menu-item--small w-100 toogle-modal-button">
+                        { isOpenModal ? 'Close modal' : 'Add Task' }
                     </Button>
-                    { isOpenModal ? 'Open' : 'Close' }
-                    <Services/>
-                </Sidebar>
-            </div>
+                </div>
+            </Col>
         );
     }
 }
