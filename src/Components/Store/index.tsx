@@ -4,10 +4,10 @@ import { createStore, applyMiddleware } from 'redux';
 import { enableBatching } from 'redux-batched-actions';
 
 import AppReducer from './App';
-import CallButtonsReducer from './CallButtons';
-import CallServicesReducer from './CallServices';
-import CallTasksReducer from './CallTasks';
-import ToggleModalReducer from './ToggleModal';
+import CallButtonsReducer from '../Reducers/CallButtons';
+import CallServicesReducer from '../Reducers/CallServices';
+import CallTasksReducer from '../Reducers/CallTasks';
+import ToggleModalReducer from '../Reducers/ToggleModal';
 
 const initStore = () => {
 	// add the middlewares

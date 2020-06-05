@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Button } from "react-bootstrap";
+import {Navbar, Nav, NavItem, Button} from "react-bootstrap";
 import Services from "./Containers/CallServiceContainer";
+import Sidebar from "react-sidebar";
 
 type Props = {
     isOpenModal: boolean,
@@ -14,11 +15,18 @@ class ToggleModal extends Component<Props> {
         const { toggleModal, isOpenModal } = this.props;
         return (
             <div>
-                <Button variant={'tulip-large-primary' as any} onClick={toggleModal}>
-                    Add Task
-                </Button>
-                { isOpenModal ? 'Open' : 'Close' }
-                <Services/>
+                <Sidebar
+                    sidebar={<Services/>}
+                    open={isOpenModal}
+                    onSetOpen={toggleModal}
+                    styles={{ sidebar: { background: "white" } }}
+                >
+                    <Button variant={'tulip-large-primary' as any} onClick={toggleModal}>
+                        Add Task
+                    </Button>
+                    { isOpenModal ? 'Open' : 'Close' }
+                    <Services/>
+                </Sidebar>
             </div>
         );
     }
