@@ -34,7 +34,7 @@ class Tasks extends Component<Props> {
         let { createTask, tasks } = this.props;
 
         return (
-            <Row className='h-100 flex-row py-3'>
+            <Row className='h-100 flex-row'>
                 <SimpleMap/>
                 <Row className='position-absolute w-100 px-4'>
                     <Col xs={12} lg={8} className='tasks-wrapper pl-lg-5 pt-lg-5'>

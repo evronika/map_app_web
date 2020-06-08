@@ -11,9 +11,9 @@ class Map extends Component {
 
 		return (
 			<Container className='vh-100' fluid>
-				<Header/>
+				{/*<Header/>*/}
 				<Tasks/>
-				<Footer/>
+				{/*<Footer/>*/}
 			</Container>
 		);
 	}

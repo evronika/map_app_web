@@ -20,7 +20,7 @@
 	}
 }
 
-.toogle-modal-button.btn.btn-outline-primary{
+.toggle-modal-button.btn.btn-outline-primary{
 	@include buttons;
 	box-shadow: none;
 }
@@ -43,7 +43,7 @@
 }
 
 .tasks-wrapper span,
-.toogle-modal-button {
+.toggle-modal-button {
 	z-index: 3;
 	position: relative;
 }
@@ -51,8 +51,6 @@
 .sidebar {
 	z-index: 4;
 }
-
-
 
 .tasks-wrapper span{
 	color: white;

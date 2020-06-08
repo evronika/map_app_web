@@ -1,27 +1,63 @@
-const initialState = {
-    services: []
+import { Reducer } from 'redux';
+
+type IServicesState = {
+    services: {}[]
 }
 
-export default (state: any = initialState, action: any) => {
+type ServiceActions = {
+    type: string
+    data?: []|{}
+}
 
-    if (action.type === 'GET_SERVICES') {
-        state.services = action.data;
-    }
+const initialState: IServicesState = {
+    services: [
+        {name: 'plumbing'},
+        {name: 'cook'},
+        {name: 'electricity'},
+        {name: 'gardener'},
+        {name: 'housekeeper'}
+        ]
+}
 
-    if (action.type === 'ADD_SERVICE') {
-        state.services = [...state.services, action.data];
-    }
+const neverReached = (never: never) => {};
 
-    if (action.type === 'UPDATE_SERVICE') {
-        state.services.map((item: any) =>
-            item._id === action._id ? {...action.data} : item
-        )
-    }
+export default (state: any = initialState, action: any): Reducer<IServicesState, ServiceActions> => {
 
-    if (action.type === 'DELETE_SERVICE') {
-        state.services = state.services.filter((value: any) =>  {
-            return value._id !== action.data._id
-        });
+    switch (action.type) {
+        case 'GETTING_SERVICES':
+            console.log('action', action)
+            return {
+                ...state
+            };
+        case 'GOT_SERVICES':
+            console.log('action 2', action)
+            return {
+                ...state,
+                services: action.data
+            };
+        case 'GET_SERVICES':
+            return {
+                ...state,
+                services: action.data
+            };
+        case 'ADD_SERVICE':
+            return {
+                ...state,
+                services : [...state.services, action.data]
+            };
+        case 'UPDATE_SERVICE':
+            state.services.map((item: any) =>
+                item._id === action._id ? {...action.data} : item
+            )
+            return state;
+
+        case 'DELETE_SERVICE':
+            state.services = state.services.filter((value: any) =>  {
+                return value._id !== action.data._id
+            });
+            return state;
+        default:
+            neverReached(action as never);
     }
 
     return state;

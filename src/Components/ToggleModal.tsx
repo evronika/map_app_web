@@ -18,10 +18,12 @@ class ToggleModal extends Component<Props> {
             <Col xs={12} lg={4}>
                 <div className='position-relative py-3'>
 
-                    { isOpenModal ? <AddTask toggleModal={toggleModal} isOpenModal={isOpenModal} createTask={createTask}/> : '' }
-                    <Button variant={'outline-primary'} onClick={toggleModal} className="menu-item--small w-100 toogle-modal-button">
-                        { isOpenModal ? 'Close modal' : 'Add Task' }
-                    </Button>
+                    { isOpenModal ?
+                        <AddTask toggleModal={toggleModal} isOpenModal={isOpenModal} createTask={createTask}/> :
+                        <Button variant={'outline-primary'} onClick={toggleModal} className="menu-item--small w-100 toggle-modal-button">
+                            Add Task
+                        </Button>
+                    }
                 </div>
             </Col>
         );

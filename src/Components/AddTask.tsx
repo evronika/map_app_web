@@ -63,9 +63,9 @@ class AddTask extends Component<Props> {
 
         return (
             <div className='sidebar position-absolute bg-light w-100 px-3 py-3'>
-                <Icon.X size={30} onClick={toggleModal} className='close-sidebar-button mb-2'/>
-                <div className='my-4'>
-                    <h3>Task info</h3>
+                <Icon.X size={30} onClick={toggleModal} className='close-sidebar-button mb-2 position-absolute'/>
+                <div className='mb-4'>
+                    <h3 className='text-center'>Task info</h3>
                     <div className='d-flex mb-2'>
                         <div className='mr-2'>Service:</div>
                         <div className='font-weight-bold'>{serviceName}</div>
@@ -79,7 +79,7 @@ class AddTask extends Component<Props> {
                         <div className='font-weight-bold'>{description}</div>
                     </div>
                 </div>
-                <div className='services-wrapper d-flex justify-content-center'>
+                <div className='services-wrapper d-flex justify-content-center flex-wrap'>
                     <Services onServiceChange={this.onChangeService}/>
                 </div>
                 <Form noValidate onSubmit={this.onSubmit}>
