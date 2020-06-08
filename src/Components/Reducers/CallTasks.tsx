@@ -10,19 +10,34 @@ const initialState = {
 }
 
 export default (state: any = initialState, action: any) => {
-    if (action.type === 'GET_TASKS') {
-
+    if (action.type === 'GETTING_TASKS') {
+        return {
+            ...state
+        };
+    }
+    if (action.type === 'GOT_TASKS') {
+        return {
+            ...state,
+            tasks: action.data
+        };
     }
 
-    if (action.type === 'CREATE_TASK') {
+    if (action.type === 'ADDING_TASK') {
+        return {
+            ...state
+        };
+    }
+
+    if (action.type === 'ADDED_TASK') {
         state = Object.assign({}, state, {
             tasks: [
                 ...state.tasks,
-                {
-                    description: action.data.description
-                }
+                action.data
             ]
         })
+
+        console.log('action', action)
+        console.log('state',state)
     }
 
     if (action.type === 'UPDATE_TASK') {

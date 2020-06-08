@@ -40,7 +40,12 @@ class AddTask extends Component<Props> {
     onChangeService: any = (data: any) => {
         const { changeService } = this.props;
         const serviceName  = data.target.getAttribute('data-name');
-        changeService(serviceName);
+        const serviceId  = data.target.getAttribute('data-id');
+        let obj = {
+            serviceName: serviceName,
+            serviceId: serviceId
+        }
+        changeService(obj);
     }
 
     onSubmit: any = (event: any) => {
@@ -50,7 +55,7 @@ class AddTask extends Component<Props> {
             location: location,
             description: description,
             serviceName: serviceName,
-            serviceId: serviceId,
+            service_id: serviceId,
         }
         createTask(object)
         cleanData()

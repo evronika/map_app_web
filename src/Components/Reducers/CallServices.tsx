@@ -10,13 +10,7 @@ type ServiceActions = {
 }
 
 const initialState: IServicesState = {
-    services: [
-        {name: 'plumbing'},
-        {name: 'cook'},
-        {name: 'electricity'},
-        {name: 'gardener'},
-        {name: 'housekeeper'}
-        ]
+    services: []
 }
 
 const neverReached = (never: never) => {};
@@ -25,22 +19,20 @@ export default (state: any = initialState, action: any): Reducer<IServicesState,
 
     switch (action.type) {
         case 'GETTING_SERVICES':
-            console.log('action', action)
             return {
                 ...state
             };
         case 'GOT_SERVICES':
-            console.log('action 2', action)
             return {
                 ...state,
                 services: action.data
             };
-        case 'GET_SERVICES':
+
+        case 'ADDING_SERVICE':
             return {
-                ...state,
-                services: action.data
+                ...state
             };
-        case 'ADD_SERVICE':
+        case 'ADDED_SERVICE':
             return {
                 ...state,
                 services : [...state.services, action.data]

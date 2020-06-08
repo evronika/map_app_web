@@ -29,6 +29,11 @@ export function getService(id: string) {
     }
 }
 
+export interface IGotServicesAction extends Action<"GOT_SERVICES"> {
+    data: [],
+    type: "GOT_SERVICES"
+}
+
 export interface IGettingServicesAction extends Action<"GETTING_SERVICES"> {
     type: "GETTING_SERVICES"
 }
@@ -37,10 +42,6 @@ export interface IGotServicesAction extends Action<"GOT_SERVICES"> {
     data: [],
     type: "GOT_SERVICES"
 }
-
-export type ServiceActions =
-    | IGettingServicesAction
-    | IGotServicesAction;
 
 export const getServices: ActionCreator<ThunkAction<
     // The type of the last action to be dispatched - will always be promise<T> for async actions
@@ -53,10 +54,10 @@ export const getServices: ActionCreator<ThunkAction<
     IGotServicesAction
     >> = () => {
     return async (dispatch: Dispatch) => {
-        const gettingPeopleAction: IGettingServicesAction = {
+        const gettingServicesAction: IGettingServicesAction = {
             type: "GETTING_SERVICES"
         };
-        dispatch(gettingPeopleAction);
+        dispatch(gettingServicesAction);
         const data: [] = await getServicesFromApi();
         const gotServicesAction: IGotServicesAction = {
             data,
@@ -75,5 +76,4 @@ async function getServicesFromApi() {
     });
 
     return (await res.json() as any).data;
-
 }

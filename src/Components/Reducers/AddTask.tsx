@@ -2,6 +2,7 @@ const initialState = {
     location: '',
     serviceName: '',
     description: '',
+    serviceId: ''
 }
 
 export default (state: any = initialState, action: any) => {
@@ -10,7 +11,7 @@ export default (state: any = initialState, action: any) => {
     }
 
     if (action.type === 'CHANGE_SERVICE') {
-        state = { ...state, serviceName: action.data}
+        state = { ...state, serviceName: action.data.serviceName, serviceId: action.data.serviceId}
     }
 
     if (action.type === 'CHANGE_DESCRIPTION') {
@@ -20,6 +21,8 @@ export default (state: any = initialState, action: any) => {
     if (action.type === 'CLEAN_FORM_DATA') {
         state = initialState;
     }
+
+    console.log('state', state)
 
     return state;
 };

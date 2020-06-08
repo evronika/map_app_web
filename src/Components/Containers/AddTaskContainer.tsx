@@ -6,7 +6,8 @@ const mapStateToProps = (state: any) => {
     return {
         location: state.AddTaskReducer.location,
         description: state.AddTaskReducer.description,
-        serviceName: state.AddTaskReducer.serviceName
+        serviceName: state.AddTaskReducer.serviceName,
+        serviceId: state.AddTaskReducer.serviceId
     };
 };
 const mapDispatchToProps = (dispatch: any) => {

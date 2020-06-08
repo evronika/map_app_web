@@ -17,6 +17,11 @@ class Tasks extends Component<Props> {
         this.renderTasks = this.renderTasks.bind(this);
     }
 
+    componentDidMount() {
+        const { getTasks } = this.props;
+        getTasks()
+    }
+
     renderTasks: any = () => {
         let { tasks } = this.props;
         return tasks.map((task: { description: string }, key) => {

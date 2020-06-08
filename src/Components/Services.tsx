@@ -25,45 +25,46 @@ class Services extends Component<Props> {
         getServices()
     };
 
-    renderSwitch(service: { name: string }, key : any) {
+    renderSwitch(service: { name: string, _id: string }, key : any) {
         const { onServiceChange } = this.props;
         const name: string = service.name.charAt(0).toUpperCase() + service.name.slice(1);
         let image: any;
         switch (name) {
             case 'Cook':
                 image = (
-                    <Image src={Cook} className='my-2' data-name={name}/>
+                    <Image src={Cook} className='my-2' data-name={name} data-id={service._id}/>
                 );
                 break;
             case 'Electricity':
                 image = (
-                    <Image src={Electricity} className='my-2' data-name={name}/>
+                    <Image src={Electricity} className='my-2' data-name={name} data-id={service._id}/>
                 );
                 break;
             case 'Gardener':
                 image = (
-                    <Image src={Gardener} className='my-2' data-name={name}/>
+                    <Image src={Gardener} className='my-2' data-name={name} data-id={service._id}/>
                 );
                 break;
             case 'Housekeeper':
                 image = (
-                    <Image src={Housekeeper} className='my-2' data-name={name}/>
+                    <Image src={Housekeeper} className='my-2' data-name={name} data-id={service._id}/>
                 );
                 break;
             case 'Plumbing':
                 image = (
-                    <Image src={Plumbing} className='my-2' data-name={name}/>
+                    <Image src={Plumbing} className='my-2' data-name={name} data-id={service._id}/>
                 );
                 break;
             case 'Location':
                 image = (
-                    <Image src={Location} className='my-2' data-name={name}/>
+                    <Image src={Location} className='my-2' data-name={name} data-id={service._id}/>
                 );
                 break;
         }
-        return <Button className='service-button' key={key} onClick={onServiceChange} data-name={name}>
+        return <Button className='service-button' key={key} onClick={onServiceChange}
+                       data-name={name} data-id={service._id}>
             { image }
-            <p data-name={name}>{ name }</p>
+            <p data-name={name} data-id={service._id}>{ name }</p>
         </Button>
     }
 
@@ -71,7 +72,7 @@ class Services extends Component<Props> {
         let { services } = this.props;
 
         return (
-            services.map((service: { name: string }, key) => {
+            services.map((service: { name: string, _id: string}, key) => {
                 return this.renderSwitch(service, key)
             })
         );
