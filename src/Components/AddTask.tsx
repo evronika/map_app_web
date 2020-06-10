@@ -56,7 +56,7 @@ class AddTask extends Component<Props> {
         const object: {} = {
             location: location,
             description: description,
-            serviceName: serviceName,
+            service_name: serviceName,
             service_id: serviceId,
         }
         createTask(object).then((res: any) => {
