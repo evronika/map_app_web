@@ -63,7 +63,6 @@
 
 .tasks-wrapper span{
 	color: white;
-	font-size: 14px;
 }
 
 .task-buttons-wrapper {
@@ -72,6 +71,9 @@
 
 .task-wrapper {
 	background-color: rgba(0,0,0, 0.2);
+	span {
+		font-size: 14px;
+	}
 }
 
 .radio-wrapper,
