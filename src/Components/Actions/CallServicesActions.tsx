@@ -22,12 +22,30 @@ export function deleteService(id: string) {
     }
 }
 
-export function getService(id: string) {
-    return {
-        type: 'GET_SERVICE',
-        _id: id
-    }
-}
+export const getServiceById: ActionCreator<ThunkAction<
+    // The type of the last action to be dispatched - will always be promise<T> for async actions
+    Promise<IGotServicesAction>,
+    // The type for the data within the last action
+    {},
+    // The type of the parameter for the nested function
+    string,
+    // The type of the last action to be dispatched
+    IGotServicesAction
+    >> = (id: string) => {
+    return async (dispatch: Dispatch) => {
+        const gettingServicesAction: IGettingServicesAction = {
+            type: "GETTING_SERVICES"
+        };
+        dispatch(gettingServicesAction);
+        const data: [] = await getServiceFromApi(id);
+        const gotServicesAction: IGotServicesAction = {
+            data,
+            type: "GOT_SERVICES"
+        };
+        return dispatch(gotServicesAction);
+    };
+};
+
 
 export interface IGotServicesAction extends Action<"GOT_SERVICES"> {
     data: [],
@@ -69,6 +87,17 @@ export const getServices: ActionCreator<ThunkAction<
 
 async function getServicesFromApi() {
     let res = await fetch('http://localhost:3001/api/services', {
+        method: 'GET',
+        headers: {
+            'Access-Control-Allow-Origin': '*'
+        }
+    });
+
+    return (await res.json() as any).data;
+}
+
+async function getServiceFromApi(serviceId: string) {
+    let res = await fetch(`http://localhost:3001/api/services/${serviceId}`, {
         method: 'GET',
         headers: {
             'Access-Control-Allow-Origin': '*'

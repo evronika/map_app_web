@@ -29,7 +29,8 @@
 	box-shadow: 0 0 0 0.2rem $blue-color;
 }
 
-.close-sidebar-button {
+.close-sidebar-button,
+.task-wrapper span svg{
 	cursor: pointer;
 }
 
@@ -43,7 +44,8 @@
 }
 
 .tasks-wrapper span,
-.toggle-modal-button {
+.toggle-modal-button,
+.tasks-wrapper {
 	z-index: 3;
 	position: relative;
 }
@@ -54,4 +56,12 @@
 
 .tasks-wrapper span{
 	color: white;
+}
+
+.task-buttons-wrapper {
+	right: 0.5rem
+}
+
+.task-wrapper {
+	background-color: rgba(0,0,0, 0.2);
 }

@@ -5,9 +5,9 @@ export interface IAddingTaskAction extends Action<"ADDING_TASK"> {
     type: "ADDING_TASK"
 }
 
-export interface IAddedTaskAction extends Action<"ADDED_TASK"> {
-    data: [],
-    type: "ADDED_TASK"
+export interface IAddedTaskAction extends Action<"ADDED_TASK"| "NOT_ADDED_TASK"> {
+    data?: [],
+    type: "ADDED_TASK" | "NOT_ADDED_TASK"
 }
 
 export interface IGettingTasksAction extends Action<"GETTING_TASKS"> {
@@ -17,6 +17,11 @@ export interface IGettingTasksAction extends Action<"GETTING_TASKS"> {
 export interface IGotTasksAction extends Action<"GOT_TASKS"> {
     data: [],
     type: "GOT_TASKS"
+}
+
+export interface IDeletedTaskAction extends Action<"DELETED_TASK"> {
+    _id: string,
+    type: "DELETED_TASK"
 }
 
 export const createTask: ActionCreator<ThunkAction<
@@ -35,16 +40,20 @@ export const createTask: ActionCreator<ThunkAction<
         };
         dispatch(gettingPeopleAction);
         let res: any = await addTasksToApi(object);
+        let addTaskAction: IAddedTaskAction;
         if (!res.success) {
-            console.log("Error while creating a task: ", res.message);
+            console.debug("Error while creating a task: ", res.message);
+            addTaskAction = {
+                type: "NOT_ADDED_TASK"
+            };
+        } else {
+            addTaskAction = {
+                data: res.data,
+                type: "ADDED_TASK"
+            };
         }
-        const data = (res.data ? res.data : {});
-        const gotTasksAction: IAddedTaskAction = {
-            data,
-            type: "ADDED_TASK"
-        };
 
-        return dispatch(gotTasksAction);
+        return dispatch(addTaskAction);
     };
 };
 
@@ -52,13 +61,6 @@ export function updateTask(data: {}) {
     return {
         type: 'UPDATE_TASK',
         data: data
-    }
-}
-
-export function deleteTask(id: string) {
-    return {
-        type: 'DELETE_TASK',
-        _id: id
     }
 }
 
@@ -77,7 +79,11 @@ export const getTasks: ActionCreator<ThunkAction<
             type: "GETTING_TASKS"
         };
         dispatch(gettingTaksAction);
-        const data: [] = await getTasksFromApi();
+        let res: any = await getTasksFromApi();
+        if (!res.success) {
+            console.debug("Error while getting tasks: ", res.message);
+        }
+        const data = res.data ? res.data : {};
         const gotTasksAction: IGotTasksAction = {
             data,
             type: "GOT_TASKS"
@@ -86,16 +92,29 @@ export const getTasks: ActionCreator<ThunkAction<
     };
 };
 
-async function getTasksFromApi() {
-    let res = await fetch('http://localhost:3001/api/tasks', {
-        method: 'GET',
-        headers: {
-            'Access-Control-Allow-Origin': '*'
+export const deleteTask: ActionCreator<ThunkAction<
+    // The type of the last action to be dispatched - will always be promise<T> for async actions
+    Promise<IDeletedTaskAction>,
+    // The type for the data within the last action
+    {},
+    // The type of the parameter for the nested function
+    string,
+    // The type of the last action to be dispatched
+    IDeletedTaskAction
+    >> = (id: string) => {
+    return async (dispatch: Dispatch) => {
+        let res: any = await deleteTaskFromApi(id);
+        if (!res.success) {
+            console.debug("Error while deleting task: ", res.message);
         }
-    });
-
-    return (await res.json() as any).data;
-}
+        const _id = res.id ? res.id : '';
+        const deletedTaskAction: IDeletedTaskAction = {
+            _id,
+            type: "DELETED_TASK"
+        };
+        return dispatch(deletedTaskAction);
+    };
+};
 
 export function getTask(id: string) {
     return {
@@ -114,7 +133,28 @@ async function addTasksToApi(data: {}) {
         body: JSON.stringify(data)
     });
 
-    let result: any = res.json()
+    return res.json();
+}
 
-    return result;
+async function getTasksFromApi() {
+    let res = await fetch('http://localhost:3001/api/tasks', {
+        method: 'GET',
+        headers: {
+            'Access-Control-Allow-Origin': '*'
+        }
+    });
+
+    return res.json();
+}
+
+async function deleteTaskFromApi(id: string) {
+    let res: any = await fetch(`http://localhost:3001/api/tasks/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json'
+        }
+    });
+
+    return res.json();
 }

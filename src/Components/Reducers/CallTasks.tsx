@@ -1,12 +1,5 @@
 const initialState = {
-    tasks: [
-        {description: 'test 1'},
-        {description: 'test 2'},
-        {description: 'test 3'},
-        {description: 'test 4'},
-        {description: 'test 5'},
-        {description: 'test 6'}
-    ]
+    tasks: []
 }
 
 export default (state: any = initialState, action: any) => {
@@ -35,9 +28,12 @@ export default (state: any = initialState, action: any) => {
                 action.data
             ]
         })
+    }
 
-        console.log('action', action)
-        console.log('state',state)
+    if (action.type === 'NOT_ADDED_TASK') {
+        return {
+            ...state
+        };
     }
 
     if (action.type === 'UPDATE_TASK') {
@@ -46,10 +42,12 @@ export default (state: any = initialState, action: any) => {
         )
     }
 
-    if (action.type === 'DELETE_TASK') {
-        state.tasks = state.tasks.filter((value: any) =>  {
-            return value._id !== action.data._id
-        });
+    if (action.type === 'DELETED_TASK') {
+        state = {
+            tasks: state.tasks.filter((value: any) =>  {
+                return value._id !== action._id
+            })
+        }
     }
 
     return state;

@@ -16,6 +16,7 @@
     "@types/react-router-dom": "^5.1.5",
     "@types/recompose": "^0.30.7",
     "@types/twilio-video": "^2.0.12",
+    "array-union": "^2.1.0",
     "bootstrap": "^4.4.1",
     "google-map-react": "^1.1.7",
     "jasny-bootstrap": "^4.0.0",
@@ -69,6 +70,7 @@
   "devDependencies": {
     "eslint": "^6.8.0",
     "husky": "^4.2.5",
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "react-dev-utils": "^10.2.1"
   }
 }

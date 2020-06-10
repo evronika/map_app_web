@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Services from '../Services';
-import { createService, getServices, getService, deleteService, updateService } from '../Actions';
+import { createService, getServices, getServiceById, deleteService, updateService } from '../Actions';
 
 const mapStateToProps = (state: any) => {
     return {
@@ -11,7 +11,7 @@ const mapDispatchToProps = (dispatch: any) => {
     return {
         createService: (data: {}) => dispatch(createService(data)),
         getServices: () => dispatch(getServices()),
-        getService: (id: string) => dispatch(getService(id)),
+        getService: (id: string) => dispatch(getServiceById(id)),
         deleteService: (id: string) => dispatch(deleteService(id)),
         updateService: (data: {}) => dispatch(updateService(data))
     };

@@ -22,7 +22,5 @@ export default (state: any = initialState, action: any) => {
         state = initialState;
     }
 
-    console.log('state', state)
-
     return state;
 };

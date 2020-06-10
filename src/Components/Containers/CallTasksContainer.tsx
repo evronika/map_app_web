@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Tasks from '../Tasks';
-import { createTask, getTasks, deleteTask, updateTask} from '../Actions';
+import { createTask, getTasks, deleteTask, updateTask, getServiceById} from '../Actions';
 
 const mapStateToProps = (state: any) => {
     return {

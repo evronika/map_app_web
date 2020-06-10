@@ -37,13 +37,11 @@ class AddTask extends Component<Props> {
         changeDescription(data.target.value);
     }
 
-    onChangeService: any = (data: any) => {
+    onChangeService: any = (id: string, name: string) => {
         const { changeService } = this.props;
-        const serviceName  = data.target.getAttribute('data-name');
-        const serviceId  = data.target.getAttribute('data-id');
         let obj = {
-            serviceName: serviceName,
-            serviceId: serviceId
+            serviceName: id,
+            serviceId: name
         }
         changeService(obj);
     }
@@ -57,8 +55,13 @@ class AddTask extends Component<Props> {
             serviceName: serviceName,
             service_id: serviceId,
         }
-        createTask(object)
-        cleanData()
+        createTask(object).then((res: any) => {
+            if (res.data) {
+                cleanData()
+            } else {
+                console.debug('ERROR res', res)
+            }
+        })
     }
 
 
@@ -84,10 +87,10 @@ class AddTask extends Component<Props> {
                         <div className='font-weight-bold'>{description}</div>
                     </div>
                 </div>
-                <div className='services-wrapper d-flex justify-content-center flex-wrap'>
-                    <Services onServiceChange={this.onChangeService}/>
-                </div>
                 <Form noValidate onSubmit={this.onSubmit}>
+                    <div className='services-wrapper d-flex justify-content-center flex-wrap'>
+                        <Services onServiceChange={this.onChangeService}/>
+                    </div>
                     <Form.Group className='d-flex my-3 mx-0'>
                         <Button variant={"outline-primary"} className='sidebar-button'>Use current location</Button>
                     </Form.Group>

@@ -61,11 +61,14 @@ class Services extends Component<Props> {
                 );
                 break;
         }
-        return <Button className='service-button' key={key} onClick={onServiceChange}
-                       data-name={name} data-id={service._id}>
-            { image }
-            <p data-name={name} data-id={service._id}>{ name }</p>
-        </Button>
+        return (
+            <Button className='service-button' key={key} onClick={() => onServiceChange(service._id, name)}>
+                { image }
+                <p onClick={() => onServiceChange(service._id, name)}>{ name }</p>
+            </Button>
+            )
+
+
     }
 
     render() {
