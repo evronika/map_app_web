@@ -103,7 +103,7 @@ class AddTask extends Component<Props> {
         const { toggleModal, location, serviceName, description, validated } = this.props;
 
         return (
-            <div className='sidebar position-absolute bg-light w-100 px-3 py-3'>
+            <div className='sidebar position-absolute w-100 px-3 py-3'>
                 <Icon.X size={30} onClick={toggleModal} className='close-sidebar-button mb-2 position-absolute'/>
                 <div className='mb-4'>
                     <h3 className='text-center'>Task info</h3>
@@ -139,12 +139,11 @@ class AddTask extends Component<Props> {
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                         </Form.Group>
                         <Form.Group as={Col} xs="12" controlId="validationCustom02">
-                            <Form.Label>Additional info</Form.Label>
                             <Form.Control
                                 required
                                 as="textarea"
                                 rows={3}
-                                placeholder=""
+                                placeholder="Additional info"
                                 value={description}
                                 onChange={this.onChangeDescription}
                             />
