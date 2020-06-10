@@ -66,14 +66,13 @@ class Services extends Component<Props> {
                 break;
         }
         return (
-            <Button className={`position-relative service-button ${selectedClass}`} key={key} onClick={() => onServiceChange(service._id, name)}>
+            <Button className={`position-relative service-button ${selectedClass}`} key={key} onClick={onServiceChange(service._id, name)}>
                 <Form.Check
                     type="radio"
                     id={name}
                     value={name}
                     name='services'
                     className='radio-wrapper invisible'
-                    checked={checked}
                 />
                 { image }
                 <p onClick={() => onServiceChange(service._id, name)}>{ name }</p>

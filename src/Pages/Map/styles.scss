@@ -25,8 +25,11 @@
 	box-shadow: none;
 }
 
-.btn.btn-primary.service-button:focus {
-	box-shadow: 0 0 0 0.2rem $blue-color;
+.btn.btn-primary.service-button:focus,
+.selected-service {
+	box-shadow: 0 0 0 0.2rem #80bdff;
+	border-color: #80bdff;
+	outline: 0;
 }
 
 .close-sidebar-button,
@@ -79,6 +82,15 @@
 	left: 0;
 }
 
-.selected-service {
-	box-shadow: 0 0 0 0.2rem #4674ff;
+.services-wrapper {
+	background-color: #fff;
+	border: 1px solid #ced4da;
+	padding-right: calc(1.5em + .75rem);
+	border-radius: .25rem;
+	background-repeat: no-repeat;
+	background-position: right calc(.375em + .1875rem) center;
+	background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+.services-wrapper.invalid {
+	border-color: #dc3545;
 }

@@ -39,8 +39,10 @@ class AddTask extends Component<Props> {
         changeDescription(data.target.value);
     }
 
-    onChangeService: any = (id: string, name: string) => {
+    onChangeService: any = (id: string, name: string) => (event: any) => {
         const { changeService } = this.props;
+        let box: any = document.getElementById('services-wrapper')
+        box.classList.remove('invalid')
         let obj = {
             serviceName: name,
             serviceId: id
@@ -67,10 +69,25 @@ class AddTask extends Component<Props> {
         })
     }
 
+    validateRadioButtons = () => {
+        const { serviceId } = this.props;
+        if (serviceId === '') {
+            return false
+        } else {
+            return true
+        }
+    }
+
     handleSubmit = (event: any) => {
 
         const { setValidated } = this.props;
         const form = event.currentTarget;
+        let box: any = document.getElementById('services-wrapper')
+        if (this.validateRadioButtons()) {
+            box.classList.remove('invalid')
+        } else {
+            box.classList.add('invalid')
+        }
         if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
@@ -105,8 +122,8 @@ class AddTask extends Component<Props> {
                 </div>
                 <Form noValidate validated={validated} onSubmit={this.handleSubmit} className='form-wrapper'>
                     <Form.Row>
-                        <Form.Group>
-                            <div className='services-wrapper d-flex justify-content-center flex-wrap'>
+                        <Form.Group as={Col} xs="12" controlId="validationCustom00">
+                            <div id='services-wrapper' className='services-wrapper d-flex justify-content-center flex-wrap'>
                                 <Services onServiceChange={this.onChangeService} selectedService={serviceName}/>
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </div>
