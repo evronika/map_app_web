@@ -23,3 +23,9 @@ export function cleanAddFormData() {
         type: 'CLEAN_FORM_DATA'
     }
 }
+
+export function setValidated() {
+    return {
+        type: 'FORM_VALIDATION'
+    }
+}

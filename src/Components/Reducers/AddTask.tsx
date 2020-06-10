@@ -2,12 +2,17 @@ const initialState = {
     location: '',
     serviceName: '',
     description: '',
-    serviceId: ''
+    serviceId: '',
+    validated: false
 }
 
 export default (state: any = initialState, action: any) => {
     if (action.type === 'CHANGE_LOCATION') {
         state = { ...state, location: action.data}
+    }
+
+    if (action.type === 'FORM_VALIDATION') {
+        state = { ...state, validated: true}
     }
 
     if (action.type === 'CHANGE_SERVICE') {

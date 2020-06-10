@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
 import AddTask from '../AddTask';
-import { changeDescription, changeLocation, changeService, cleanAddFormData } from "../Actions";
+import { changeDescription, changeLocation, changeService, cleanAddFormData, setValidated } from "../Actions";
 
 const mapStateToProps = (state: any) => {
     return {
         location: state.AddTaskReducer.location,
         description: state.AddTaskReducer.description,
         serviceName: state.AddTaskReducer.serviceName,
-        serviceId: state.AddTaskReducer.serviceId
+        serviceId: state.AddTaskReducer.serviceId,
+        validated: state.AddTaskReducer.validated
     };
 };
 const mapDispatchToProps = (dispatch: any) => {
@@ -15,6 +16,7 @@ const mapDispatchToProps = (dispatch: any) => {
         changeDescription: (data: any) => dispatch(changeDescription(data)),
         changeLocation: (data: any) => dispatch(changeLocation(data)),
         changeService: (data: any) => dispatch(changeService(data)),
+        setValidated: (data: any) => dispatch(setValidated()),
         cleanData: () => dispatch(cleanAddFormData())
     };
 };

@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import Services from "./Containers/CallServiceContainer";
 import * as Icon from 'react-bootstrap-icons';
-import {Button, Form} from "react-bootstrap";
+import {Button, Form, Col, InputGroup} from "react-bootstrap";
 
 type Props = {
     toggleModal: any,
@@ -10,11 +10,13 @@ type Props = {
     serviceName?: string,
     serviceId?: string,
     description?: string,
+    validated: boolean,
     changeDescription?: any
     changeLocation?: any
     changeService?: any
     createTask?: any
     cleanData?: any
+    setValidated?: any
 }
 
 class AddTask extends Component<Props> {
@@ -24,7 +26,7 @@ class AddTask extends Component<Props> {
         this.onChangeLocation = this.onChangeLocation.bind(this)
         this.onChangeDescription = this.onChangeDescription.bind(this)
         this.onChangeService = this.onChangeService.bind(this)
-        this.onSubmit = this.onSubmit.bind(this)
+        this.submitTask = this.submitTask.bind(this)
     }
 
     onChangeLocation: any = (data: any) => {
@@ -40,15 +42,15 @@ class AddTask extends Component<Props> {
     onChangeService: any = (id: string, name: string) => {
         const { changeService } = this.props;
         let obj = {
-            serviceName: id,
-            serviceId: name
+            serviceName: name,
+            serviceId: id
         }
         changeService(obj);
     }
 
-    onSubmit: any = (event: any) => {
-        event.preventDefault()
-        const { createTask, location, description, serviceName, serviceId, cleanData } = this.props;
+    submitTask: any = (event: any) => {
+        event.preventDefault();
+        const { createTask, location, description, serviceName, serviceId, cleanData, setValidated } = this.props;
         const object: {} = {
             location: location,
             description: description,
@@ -57,6 +59,7 @@ class AddTask extends Component<Props> {
         }
         createTask(object).then((res: any) => {
             if (res.data) {
+                setValidated();
                 cleanData()
             } else {
                 console.debug('ERROR res', res)
@@ -64,10 +67,23 @@ class AddTask extends Component<Props> {
         })
     }
 
+    handleSubmit = (event: any) => {
+
+        const { setValidated } = this.props;
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+
+        setValidated(true);
+        this.submitTask(event)
+    };
+
+
 
     render() {
-
-        const { toggleModal, location, serviceName, description } = this.props;
+        const { toggleModal, location, serviceName, description, validated } = this.props;
 
         return (
             <div className='sidebar position-absolute bg-light w-100 px-3 py-3'>
@@ -87,21 +103,37 @@ class AddTask extends Component<Props> {
                         <div className='font-weight-bold'>{description}</div>
                     </div>
                 </div>
-                <Form noValidate onSubmit={this.onSubmit}>
-                    <div className='services-wrapper d-flex justify-content-center flex-wrap'>
-                        <Services onServiceChange={this.onChangeService}/>
-                    </div>
-                    <Form.Group className='d-flex my-3 mx-0'>
-                        <Button variant={"outline-primary"} className='sidebar-button'>Use current location</Button>
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Control type="text" placeholder="Address" onChange={this.onChangeLocation} value={location}/>
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label className='sidebar-label mt-3'>Additional information</Form.Label>
-                        <Form.Control as="textarea" rows={3} onChange={this.onChangeDescription} value={description}/>
-                    </Form.Group>
-
+                <Form noValidate validated={validated} onSubmit={this.handleSubmit} className='form-wrapper'>
+                    <Form.Row>
+                        <Form.Group>
+                            <div className='services-wrapper d-flex justify-content-center flex-wrap'>
+                                <Services onServiceChange={this.onChangeService} selectedService={serviceName}/>
+                                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                            </div>
+                        </Form.Group>
+                        <Form.Group as={Col} xs="12" controlId="validationCustom01">
+                            <Form.Control
+                                required
+                                type="text"
+                                placeholder="Location"
+                                value={location}
+                                onChange={this.onChangeLocation}
+                            />
+                            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                        </Form.Group>
+                        <Form.Group as={Col} xs="12" controlId="validationCustom02">
+                            <Form.Label>Additional info</Form.Label>
+                            <Form.Control
+                                required
+                                as="textarea"
+                                rows={3}
+                                placeholder=""
+                                value={description}
+                                onChange={this.onChangeDescription}
+                            />
+                            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                        </Form.Group>
+                    </Form.Row>
                     <Button type="submit" variant={"outline-primary"} className='sidebar-button w-100'>Submit</Button>
                 </Form>
 
