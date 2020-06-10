@@ -64,7 +64,7 @@ class AddTask extends Component<Props> {
                 setValidated();
                 cleanData()
             } else {
-                console.debug('ERROR res', res)
+                console.log('ERROR: The task is not created. Please try again.', res)
             }
         })
     }

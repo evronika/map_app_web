@@ -41,7 +41,7 @@ class Tasks extends Component<Props> {
 
     renderTasks: any = () => {
         let { tasks } = this.props;
-        return tasks.map((task: {_id: string, description: string, service_id: string, location: string}, key) => {
+        return tasks.map((task: {_id: string, description: string, service_id: string, location: string, service_name: string}, key) => {
             return (
                 <div key={key} className='task-wrapper p-2 pr-5 position-relative rounded'>
                     <div className='task-buttons-wrapper position-absolute'>
@@ -50,20 +50,23 @@ class Tasks extends Component<Props> {
                             <Icon.XCircle size={20} className='mb-2' onClick={() => this.deleteTask(task._id)}/>
                         </span>
                     </div>
-
                     <div>
                         <span className='position-relative'>
                             <Icon.GeoAlt size={20} className='mb-2 mr-2'/>
                             <span className='inner-text'>{ task.location }</span>
                         </span>
-
                     </div>
                     <div>
                         <span className='position-relative' onClick={() => this.getServiceInfo(task.service_id)}>
                             <Icon.Info size={25} className='mb-2 mr-2'/>
                             <span className='inner-text'>{ task.description }</span>
                         </span>
-
+                    </div>
+                    <div>
+                        <span className='position-relative' onClick={() => this.getServiceInfo(task.service_id)}>
+                            <Icon.TagFill size={20} className='mb-2 mr-2'/>
+                            <span className='inner-text'>{ task.service_name }</span>
+                        </span>
                     </div>
 
 

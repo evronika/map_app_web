@@ -42,7 +42,7 @@ export const createTask: ActionCreator<ThunkAction<
         let res: any = await addTasksToApi(object);
         let addTaskAction: IAddedTaskAction;
         if (!res.success) {
-            console.debug("Error while creating a task: ", res.message);
+            console.log("Error while creating a task: ", res.message);
             addTaskAction = {
                 type: "NOT_ADDED_TASK"
             };
@@ -81,7 +81,7 @@ export const getTasks: ActionCreator<ThunkAction<
         dispatch(gettingTaksAction);
         let res: any = await getTasksFromApi();
         if (!res.success) {
-            console.debug("Error while getting tasks: ", res.message);
+            console.log("Error while getting tasks: ", res.message);
         }
         const data = res.data ? res.data : {};
         const gotTasksAction: IGotTasksAction = {
@@ -105,7 +105,7 @@ export const deleteTask: ActionCreator<ThunkAction<
     return async (dispatch: Dispatch) => {
         let res: any = await deleteTaskFromApi(id);
         if (!res.success) {
-            console.debug("Error while deleting task: ", res.message);
+            console.log("Error while deleting task: ", res.message);
         }
         const _id = res.id ? res.id : '';
         const deletedTaskAction: IDeletedTaskAction = {
