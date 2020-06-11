@@ -101,3 +101,14 @@
 .services-wrapper.invalid {
 	border-color: #dc3545;
 }
+
+.task-wrapper input,
+.task-wrapper textarea
+{
+	background-color: white;
+	border: none;
+}
+
+.toggler .text-primary {
+	cursor: pointer
+}

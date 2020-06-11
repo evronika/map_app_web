@@ -1,5 +1,6 @@
 const initialState = {
-    tasks: []
+    tasks: [],
+    trash: []
 }
 
 export default (state: any = initialState, action: any) => {
@@ -12,6 +13,18 @@ export default (state: any = initialState, action: any) => {
         return {
             ...state,
             tasks: action.data
+        };
+    }
+
+    if (action.type === 'GETTING_TRASH') {
+        return {
+            ...state
+        };
+    }
+    if (action.type === 'GOT_TRASH') {
+        return {
+            ...state,
+            trash: action.data
         };
     }
 

@@ -11,5 +11,5 @@ rm -rf node_modules         #get rid of all the already installed node-modules i
 npm cache clean --force     #force the node cache to be cleared
 npm i                       #install all the zigbee2mqtt modules again
 npm cache verify            #just to check that the cache is correct this time
-npm start                   #start zigbee2mqtt
+npm run start               #start zigbee2mqtt
 ```
